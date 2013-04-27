@@ -1,0 +1,20 @@
+<div class='navbar'>
+<div class="navbar-inner">
+<ul class='nav'>
+	<% if user_signed_in? %>
+  		<li>
+  		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  		</li>
+  		<li>
+  		<%= link_to "User: " + current_user.name.html_safe, current_user %>
+  		</li>
+	<% else %>
+  		<li>
+  		<%= link_to('Login', new_user_session_path)  %>  
+  		</li>
+	<% end %>
+</ul>
+</div>
+</div>
+
+
