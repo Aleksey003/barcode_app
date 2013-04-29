@@ -1,6 +1,8 @@
 <div class='navbar'>
 <div class="navbar-inner">
 <ul class='nav'>
+	<li><%= link_to "Users", users_path %></li>
+	<li><%= link_to "Barcodes", barcodes_path %></li>
 	<% if user_signed_in? %>
   		<li>
   		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
