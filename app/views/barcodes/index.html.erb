@@ -1,26 +1,14 @@
 <h1>Listing barcodes</h1>
 
-<table class='table table-bordered'>
-  <tr>
-    <th>Data</th>
-    <th>User id</th>
-    <th></th>
-    
-  </tr>
+<div id="barcodes"></div>
 
-<% @barcodes.each do |barcode| %>
-  <tr>
-    <td><%= barcode.data %></td>
-    <td><%= barcode.user.id %></td>
-    <td>
-    <%= link_to "<i class='icon-zoom-in'>Show</i>".html_safe, barcode, class: 'btn btn-mini'%>
-    <%= link_to "<i class='icon-edit'>Edit</i>".html_safe, edit_barcode_path(barcode), class: 'btn btn-mini' %>
-    <%= link_to "<i class='icon-remove'>Delete</i>".html_safe, barcode, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini' %>
-  </td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Barcode', new_barcode_path %>
+<script type="text/javascript">
+  $(function() {
+    // Blog is the app name
+    BarcodeApp.realtime.connect();
+    window.router = new BarcodeApp.Routers.BarcodesRouter({barcodes: <%= @barcodes.to_json.html_safe -%>});
+    Backbone.history.start({pushState: true});
+  });
+</script>

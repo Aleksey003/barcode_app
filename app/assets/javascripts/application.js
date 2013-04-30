@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require socket.io
+
+
+//= require backbone/barcode_app
 //= require_tree .
